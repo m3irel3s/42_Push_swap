@@ -67,13 +67,16 @@ char	**check_are_numbers(char **arr)
 	while (arr[i])
 	{
 		j = 0;
-		while (ft_isdigit(arr[i][j]) || arr[i][j] == '-' || arr[i][j] == '+')
-		{
+		if (arr[i][j] == '-' || arr[i][j] == '+')
 			j++;
-			if(arr[i][j] == '-' || arr[i][j] == '+')
+		while (arr[i][j])
+		{
+			if (!ft_isdigit(arr[i][j]))
 				return (NULL);
+			j++;
 		}
-		i++;
+		if (j = 1 && (arr[i][0] == '-' || arr[i][0] == '+')
+			return (NULL);
 	}
 	return (arr);
 }
