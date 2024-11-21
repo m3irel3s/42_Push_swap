@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:09:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/21 17:21:56 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/21 23:13:08 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,33 @@
 
 char 	**check_args(int argc, char **argv);
 char	**check_are_numbers(char **res);
-void	init_stack(char **data, t_stack *a);
+// void	init_stack(char **data, t_stack *a);
 
 int main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	// t_stack	*a;
+	// t_stack	*b;
 	char	**data;
+	size_t	i;
 
 	data = check_args(argc, argv);
 	if (!data)
 		return (1);
-	a = malloc(sizeof(t_stack));
-	init_stack(data, a);
+	// a = malloc(sizeof(t_stack));
+	// init_stack(data, a);
+	i = 0;
+	while (data[i])
+	{
+
+		printf("%s\n", data[i]);
+		i++;
+	}
 	
 }
 
 char	**check_args(int argc, char **argv)
 {
-	size_t	i;
+	int		i;
 	char	**arr;
 
 	if (argc < 2)
@@ -75,15 +83,16 @@ char	**check_are_numbers(char **arr)
 				return (NULL);
 			j++;
 		}
-		if (j = 1 && (arr[i][0] == '-' || arr[i][0] == '+')
+		if (j == 1 && (arr[i][0] == '-' || arr[i][0] == '+'))
 			return (NULL);
+		i++;
 	}
 	return (arr);
 }
-void	init_stack(char **data, t_stack *a)
-{
+// void	init_stack(char **data, t_stack *a)
+// {
 
-}
+// }
 
 
 
