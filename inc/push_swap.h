@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/22 15:38:48 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:00:56 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@
 
 typedef struct s_stack {
 	int	num;
-	int	index;
-	
+
 } t_stack;
 
 //=============================================================================//
@@ -32,9 +31,9 @@ typedef struct s_stack {
 //=============================================================================//
 
 char 	**check_args(int argc, char **argv);
-char	**check_valid_number(char **res);
-int		*check_duplicates(char **arr);
-int		*convert_into_integer(char **arr);
+char	**check_valid_number(char **arr, int i);
+long		*check_duplicates(char **arr);
+long		*convert_into_integer(char **arr);
 
 
 //=============================================================================//

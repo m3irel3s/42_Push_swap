@@ -4,8 +4,7 @@ set print array on
 
 # push_swap.c
 define main
-	disp *a
-	disp *b
+	disp *argv@argc
 	disp data
 	disp argv
 	disp argc
@@ -39,11 +38,19 @@ define convert_into_integer
 	disp res[i]
 end
 
+# brea kat main
+# fs cmd
+# run +32 10 -12 -32 +12 +23328143284821412 -432 143 134
+# break main
+# break check_valid_number
+
+# brea kat ....
+# fs cmd
+# run +32 10 -12 -32 +12 +23328143284821412 -432 143 134
+# break check_args
+
+# brea kat ....
 fs cmd
 run +32 10 -12 -32 +12 +23328143284821412 -432 143 134
-break main
-break check_args
 break check_valid_number
-break convert_into_integer
-break check_duplicates
-
+check_valid_number

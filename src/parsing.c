@@ -6,22 +6,20 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:42:29 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/22 15:48:48 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:27:05 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-char	**check_valid_number(char **arr);
-int		*check_duplicates(char **arr);
-int		*convert_into_integer(char **arr);
+char	**check_valid_number(char **arr, int i);
+long	*check_duplicates(char **arr);
+long	*convert_into_integer(char **arr);
 
-char	**check_valid_number(char **arr)
+char	**check_valid_number(char **arr, int i)
 {
-	size_t	i;
 	size_t	j;
 
-	i = 0;
 	while (arr[i])
 	{
 		j = 0;
@@ -40,15 +38,15 @@ char	**check_valid_number(char **arr)
 	return (arr);
 }
 
-int		*convert_into_integer(char **arr)
+long	*convert_into_integer(char **arr)
 {
-	int		*res;
+	long	*res;
 	size_t	i;
 
 	i = 0;
 	while (arr[i])
-		i++;
-	res = malloc(sizeof(int) * i);
+		i++; 
+	res = malloc(sizeof(long) * i);
 	if (!res)
 		ft_print_error("Error allocating space for the res(atoi)!");
 	i = 0;
@@ -67,9 +65,9 @@ int		*convert_into_integer(char **arr)
 	return (res);
 }
 
-int		*check_duplicates(char **arr)
+long	*check_duplicates(char **arr)
 {
-	int		*res;
+	long	*res;
 	size_t	i;
 	size_t	j;
 
