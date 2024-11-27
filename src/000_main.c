@@ -1,50 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   000_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:09:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/22 17:30:53 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:59:27 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./inc/push_swap.h"
 
-char 	**check_args(int argc, char **argv);
-
 int main(int argc, char **argv)
 {
-	char	**data;
-	long	*res;
-	data = check_args(argc, argv);
-	if (!data)
-		ft_print_error("data error");
-	res = check_duplicates(data);
-	if (!res)
-		ft_print_error("res error");
-	for (size_t i = 0; res[i]; i++)
-		printf("%ld\n", res[i]);
+	t_node	*a;
+	t_node	*temp;
+	a = NULL;
+
+	init_stack(argc, argv, &a);
+	temp = a;
+	printf("------------------------------\n");
+	printf("\tBEFORE SA\n");
+	printf("------------------------------\n");
+	while (temp)
+	{
+		printf("%d\n", temp->num);
+		temp = temp->next;
+	}
+	a = swap_a(a);
+	printf("------------------------------\n");
+	printf("\tAFTER SA\n");
+	printf("------------------------------\n");
+	while (a)
+	{
+		printf("%d\n", a->num);
+		a = a->next;
+	}
 	return (0);
 }
 
-char	**check_args(int argc, char **argv)
+void	init_stack(int argc, char **argv, t_node **a)
 {
-	char	**arr;
+	*a = NULL;
 
-	arr = NULL;
-	if (argc < 2)
-		return (NULL);
-	else if (argc == 2)
-	{
-		arr = ft_split(argv[1], ' ');
-		check_valid_number(arr, 0);
-	}
-	else if(argc > 2)
-		check_valid_number(argv, 1);
-	return (arr);
+	argv = check_arguments(argc, argv);
+	check_valid_number(argv);
+	validate_and_bluid_stack(argv, a);
 }
-
-
-

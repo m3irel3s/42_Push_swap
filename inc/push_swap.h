@@ -6,12 +6,12 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/22 17:00:56 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:59:02 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "../42_Libft/FT_Libft/inc/libft.h"
 # include "../42_Libft/FT_Printf/inc/ft_printf.h"
@@ -21,25 +21,32 @@
 //                               STRUCTURES                                    //
 //=============================================================================//
 
-typedef struct s_stack {
+typedef struct s_node {
 	int	num;
+	int index;
 
-} t_stack;
+	struct s_node *prev;
+	struct s_node *next;
+}	t_node;
 
 //=============================================================================//
 //                            PARSING FUNCTIONS                                //
 //=============================================================================//
 
-char 	**check_args(int argc, char **argv);
-char	**check_valid_number(char **arr, int i);
-long		*check_duplicates(char **arr);
-long		*convert_into_integer(char **arr);
+void	init_stack(int argc, char **argv, t_node **a);
+char	**check_arguments(int argc, char **argv);
+void	validate_and_bluid_stack(char **argv, t_node **stack);
+long	validate_and_convert(char *argv);
+void	check_for_duplicates(t_node *stack, int num);
+void	append_to_stack(t_node **stack, int num);
+char	**check_valid_number(char **argv);
 
 
 //=============================================================================//
 //                            MOVEMENTS FUNCTIONS                              //
 //=============================================================================//
 
+t_node	*swap_a(t_node *a);
 
 
 

@@ -7,7 +7,13 @@ INC_DIR = inc
 LIBFT_DIR = 42_Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRC = push_swap.c $(SRC_DIR)/push_swap_utils.c $(SRC_DIR)/parsing.c $(SRC_DIR)/error.c
+FILES	= 000_main.c
+FILES	+= 010_parsing.c
+FILES	+= 011_valid_and_init.c
+FILES	+= 110_swap.c
+FILES	+= 999_error.c
+
+SRC = $(addprefix $(SRC_DIR)/, $(FILES))
 
 all: $(LIBFT) $(NAME)
 
@@ -24,13 +30,13 @@ $(NAME): $(SRC)
 clean:
 	rm -f $(NAME)
 
-gdb:
+gdb: $(NAME) $(SRC)
 	gdb ./$(NAME) -tui
 
-test_str:
+test_str: $(NAME) $(SRC)
 	./$(NAME) "+32 10 -12 -32 +12 -84821412 -432 143 134"
 
-test_int:
+test_int: $(NAME) $(SRC)
 	./$(NAME) +32 10 -12 -32 +12 -84821412 -432 143 134
 
 fclean: clean

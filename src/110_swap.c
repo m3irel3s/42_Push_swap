@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   110_swap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 13:59:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/22 14:31:59 by jmeirele         ###   ########.fr       */
+/*   Created: 2024/11/27 13:55:44 by jmeirele          #+#    #+#             */
+/*   Updated: 2024/11/27 16:59:23 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-char	*ft_print_error(char *str);
-
-
-char	*ft_print_error(char *str)
+t_node	*swap_a(t_node *a)
 {
-	ft_putstr_fd(str, 2);
-	return (NULL);
+	t_node *head;
+	t_node *tail;
+
+	if (!a || !a->next)
+		return (a);
+	tail = a;
+	head = a->next;
+	head->prev = NULL;
+	tail->next = head->next;
+	tail->prev = head;
+	head->next = tail;
+	a = head;
+	return (a);
 }
+
+
+
+
