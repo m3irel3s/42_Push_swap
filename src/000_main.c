@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:09:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/27 16:59:27 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:54:04 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int main(int argc, char **argv)
 		printf("%d\n", temp->num);
 		temp = temp->next;
 	}
-	a = swap_a(a);
+	swap_a(&a);
+	temp = a;
 	printf("------------------------------\n");
 	printf("\tAFTER SA\n");
 	printf("------------------------------\n");

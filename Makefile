@@ -11,7 +11,9 @@ FILES	= 000_main.c
 FILES	+= 110_parsing.c
 FILES	+= 120_valid_and_init.c
 FILES	+= 210_swap.c
+FILES	+= 810_utils_movements.c
 FILES	+= 999_error.c
+
 
 SRC = $(addprefix $(SRC_DIR)/, $(FILES))
 

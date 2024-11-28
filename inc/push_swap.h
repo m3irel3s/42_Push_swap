@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/27 17:05:03 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:54:08 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,17 @@
 
 typedef struct s_node {
 	int	num;
-	int index;
 
 	struct s_node *prev;
 	struct s_node *next;
 }	t_node;
+
+typedef struct s_stack {
+
+	t_node	*a;
+	t_node	*b;
+}	t_stack;
+
 
 //=============================================================================//
 //                            PARSING FUNCTIONS                                //
@@ -46,8 +52,9 @@ char	**check_valid_number(char **argv);
 //                            MOVEMENTS FUNCTIONS                              //
 //=============================================================================//
 
-t_node	*swap_a(t_node *a);
-
+t_node	*swap(t_node **stack);
+void	swap_a(t_stack **stacks);
+void	swap_b(t_stack **stacks);
 
 
 //=============================================================================//
