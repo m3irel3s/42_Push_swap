@@ -1,0 +1,1 @@
+Cannot enable the TUI when output is not a terminal

@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:55:44 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/28 11:54:09 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:27:38 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_node	*swap(t_node **stack)
 
 	if (!*stack || !(*stack)->next)
 		return (*stack);
-	second = *stack;
+	second = *stack;	
 	first = (*stack)->next;
 	first->prev = NULL;
 	second->next = first->next;
@@ -31,12 +31,12 @@ t_node	*swap(t_node **stack)
 	return (*stack);
 }
 
-void	swap_a(t_stack **stacks)
+void	sa(t_stack **stacks)
 {
 	swap(&(*stacks)->a);
 }
 
-void	swap_b(t_stack **stacks)
+void	sb(t_stack **stacks)
 {
 	swap(&(*stacks)->b);
 }
