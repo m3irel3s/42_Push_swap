@@ -6,24 +6,23 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:59:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/28 11:54:04 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:23:37 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	validate_and_bluid_stack(char **argv, t_node **a)
+void	validate_and_bluid_stack(char **argv, t_node **stack)
 {
 	int	i;
 
 	i = 0;
 	while (argv[i])
 	{
-		long	num;
-
+		long	num = 0;
 		num = validate_and_convert(argv[i]);
-		check_for_duplicates(*a, (int)num);
-		append_to_stack(a, (int)num);
+		check_for_duplicates(*stack, (int)num);
+		append_to_stack(stack, (int)num);
 		i++;
 	}
 }
@@ -47,9 +46,10 @@ void	check_for_duplicates(t_node *a, int num)
 	}
 }
 
-void append_to_stack(t_node **a, int num)
+void	append_to_stack(t_node **stack, int num)
 {
-	t_node *new_node;
+	t_node	*new_node;
+	t_node	*last;
 	
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
@@ -57,13 +57,11 @@ void append_to_stack(t_node **a, int num)
 	new_node->num = num;
 	new_node->prev = NULL;
 	new_node->next = NULL;
-	if (*a == NULL)
-		*a = new_node;
+	if (*stack == NULL)
+		*stack = new_node;
 	else
 	{
-		t_node *last;
-
-		last = *a;
+		last = *stack;
 		while (last->next)
 			last = last->next;
 		last->next = new_node;

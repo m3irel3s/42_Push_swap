@@ -31,10 +31,15 @@ define swap_a
 	disp *head
 end
 
+define append_to_stack
+	disp *new_node
+	disp *last
+end
+
 # brea kat main
 fs cmd
 break main
-break swap_a
+break append_to_stack
 run "+32 10 -12 -32 +12 -84821412 -432 143 134"
 
 

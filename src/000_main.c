@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:09:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/28 11:54:04 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:22:15 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,22 @@
 
 int main(int argc, char **argv)
 {
-	t_node	*a;
-	t_node	*temp;
-	a = NULL;
-
-	init_stack(argc, argv, &a);
-	temp = a;
-	printf("------------------------------\n");
-	printf("\tBEFORE SA\n");
-	printf("------------------------------\n");
+	t_stack *stack;
+	stack = malloc(sizeof(t_stack));
+	stack->a = NULL;
+	init_stack(argc, argv, &stack->a);
+	t_node *temp = stack->a;
 	while (temp)
 	{
 		printf("%d\n", temp->num);
 		temp = temp->next;
 	}
-	swap_a(&a);
-	temp = a;
-	printf("------------------------------\n");
-	printf("\tAFTER SA\n");
-	printf("------------------------------\n");
-	while (a)
-	{
-		printf("%d\n", a->num);
-		a = a->next;
-	}
 	return (0);
 }
 
-void	init_stack(int argc, char **argv, t_node **a)
+void	init_stack(int argc, char **argv, t_node **stack)
 {
-	*a = NULL;
-
 	argv = check_arguments(argc, argv);
 	check_valid_number(argv);
-	validate_and_bluid_stack(argv, a);
+	validate_and_bluid_stack(argv, stack);
 }

@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/28 11:54:08 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/28 13:24:03 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ typedef struct s_stack {
 //                            PARSING FUNCTIONS                                //
 //=============================================================================//
 
-void	init_stack(int argc, char **argv, t_node **a);
+void	init_stack(int argc, char **argv, t_node **stack);
 char	**check_arguments(int argc, char **argv);
 void	validate_and_bluid_stack(char **argv, t_node **stack);
 long	validate_and_convert(char *argv);
-void	check_for_duplicates(t_node *stack, int num);
+void	check_for_duplicates(t_node *a, int num);
 void	append_to_stack(t_node **stack, int num);
 char	**check_valid_number(char **argv);
 
@@ -55,6 +55,12 @@ char	**check_valid_number(char **argv);
 t_node	*swap(t_node **stack);
 void	swap_a(t_stack **stacks);
 void	swap_b(t_stack **stacks);
+
+
+
+
+
+t_node	*get_last_node(t_node *head);
 
 
 //=============================================================================//
