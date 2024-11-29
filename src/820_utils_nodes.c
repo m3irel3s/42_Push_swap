@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   210_swap.c                                         :+:      :+:    :+:   */
+/*   820_utils_nodes.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 13:55:44 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/29 17:35:11 by jmeirele         ###   ########.fr       */
+/*   Created: 2024/11/29 10:46:55 by jmeirele          #+#    #+#             */
+/*   Updated: 2024/11/29 17:35:17 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	swap(t_node **stack)
+int	count_stack_size(t_node *stack_a)
 {
-	t_node *first;
-	t_node *second;
-
-	if (!*stack || !(*stack)->next)
-		return ;
-	second = *stack;	
-	first = (*stack)->next;
-	first->prev = NULL;
-	second->next = first->next;
-	if (second->next)
-		second->next->prev = second;
-	second->prev = first;
-	first->next = second;
-	*stack = first;
+	int i = 0;
+	while (stack_a)
+	{
+		i++;
+		stack_a = stack_a->next;
+	}
+	return (i);
 }
 
-// void	sa(t_stack *stacks)
-// {
-// 	swap(&(*stacks)->a);
-// }
+t_node	*create_new_node(int num)
+{
+	t_node	*node;
+	node = malloc(sizeof(t_node));
+	if (!node)
+		ft_print_error("Error adding memory to new_node");
+	node->num = num;
+	node->next = NULL;
+	node->prev = NULL;
+	return node;
+}
 
-// void	sb(t_stack *stacks)
-// {
-// 	swap(&(*stacks)->b);
-// }

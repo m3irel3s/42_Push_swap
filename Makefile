@@ -11,7 +11,9 @@ FILES	= 000_main.c
 FILES	+= 110_parsing.c
 FILES	+= 120_valid_and_init.c
 FILES	+= 210_swap.c
+FILES	+= 220_push.c
 FILES	+= 810_utils_movements.c
+FILES	+= 820_utils_nodes.c
 FILES	+= 999_error.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(FILES))
@@ -34,21 +36,21 @@ $(NAME): $(SRC)
 clean:
 	rm -f $(NAME)
 
-gdb: $(NAME) $(SRC)
-	gdb ./$(NAME) -tui
+# gdb: $(NAME) $(SRC)
+# 	gdb ./$(NAME) -tui
 
-# gdb: all $(NAME) ## Debug w/ gdb
-# 	tmux split-window -h "gdb --tui --args --log-file=gdb.txt ./$(NAME)"
-# 	tmux resize-pane -L 5
-# 	make get_log
+gdb: all $(NAME) ## Debug w/ gdb
+	tmux split-window -h "gdb --tui --args --log-file=gdb.txt ./$(NAME)"
+	tmux resize-pane -L 5
+	make get_log
 
-# get_log:
-# 	touch gdb.txt
-# 	@if command -v lnav; then \
-# 		lnav gdb.txt; \
-# 	else \
-# 		tail -f gdb.txt; \
-# 	fi
+get_log:
+	touch gdb.txt
+	@if command -v lnav; then \
+		lnav gdb.txt; \
+	else \
+		tail -f gdb.txt; \
+	fi
 
 test_str: $(NAME) $(SRC)
 	./$(NAME) $(ARGV_STR)

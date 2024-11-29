@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:59:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/28 13:23:37 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/29 17:35:10 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,8 @@ void	append_to_stack(t_node **stack, int num)
 {
 	t_node	*new_node;
 	t_node	*last;
-	
-	new_node = malloc(sizeof(t_node));
-	if (!new_node)
-		ft_print_error("Memory allocation failed!");
-	new_node->num = num;
-	new_node->prev = NULL;
-	new_node->next = NULL;
+
+	new_node = create_new_node(num);
 	if (*stack == NULL)
 		*stack = new_node;
 	else
@@ -66,5 +61,5 @@ void	append_to_stack(t_node **stack, int num)
 			last = last->next;
 		last->next = new_node;
 		new_node->prev = last;
-	}
+	}	
 }

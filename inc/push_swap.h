@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/28 13:24:03 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/11/29 17:35:05 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,24 @@
 //                               STRUCTURES                                    //
 //=============================================================================//
 
-typedef struct s_node {
+typedef struct s_node
+{
 	int	num;
+	int max;
+	int min;
+	int index;
+	int cost;
 
 	struct s_node *prev;
 	struct s_node *next;
 }	t_node;
 
-typedef struct s_stack {
-
+typedef struct s_stack
+{
 	t_node	*a;
+	int		size_a;
 	t_node	*b;
+	int		size_b;
 }	t_stack;
 
 
@@ -39,7 +46,7 @@ typedef struct s_stack {
 //                            PARSING FUNCTIONS                                //
 //=============================================================================//
 
-void	init_stack(int argc, char **argv, t_node **stack);
+void	init_stack(int argc, char **argv, t_stack *stack);
 char	**check_arguments(int argc, char **argv);
 void	validate_and_bluid_stack(char **argv, t_node **stack);
 long	validate_and_convert(char *argv);
@@ -52,21 +59,21 @@ char	**check_valid_number(char **argv);
 //                            MOVEMENTS FUNCTIONS                              //
 //=============================================================================//
 
-t_node	*swap(t_node **stack);
-void	swap_a(t_stack **stacks);
-void	swap_b(t_stack **stacks);
-
-
-
-
-
-t_node	*get_last_node(t_node *head);
+void	swap(t_node **stack);
+void	push(t_node **stack_x, t_node **stack_y);
 
 
 //=============================================================================//
 //                            ALGORITHM FUNCTIONS                              //
 //=============================================================================//
 
+//=============================================================================//
+//                              UTILS FUNCTIONS                                //
+//=============================================================================//
+
+t_node	*get_last_node(t_node *head);
+int		count_stack_size(t_node *stack_a);
+t_node	*create_new_node(int num);
 
 
 //=============================================================================//
@@ -74,6 +81,9 @@ t_node	*get_last_node(t_node *head);
 //=============================================================================//
 
 char	*ft_print_error(char *str);
+
+
+
 
 
 #endif
