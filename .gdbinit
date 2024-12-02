@@ -15,9 +15,9 @@ set logging on
 
 # push_swap.c
 define main
-	disp *argv@argc
-	disp argv
-	disp argc
+	# disp *argv@argc
+	disp *temp_b
+	disp temp_b
 	
 end
 
@@ -36,6 +36,12 @@ define check_valid_number
 	disp j
 	disp *arr[j]
 	disp arr[j]
+end
+
+define rotate
+	disp *head
+	disp *temp_head
+	disp *tail
 end
 
 define swap
@@ -60,7 +66,7 @@ end
 fs cmd
 file push_swap
 break main
-break append_to_stack
+break rotate
 run +32 10 -12 -32 +12 -84821412 -432 143 134 > /dev/null
 
 # fs cmd

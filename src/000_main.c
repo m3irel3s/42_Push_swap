@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:09:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/29 17:35:08 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/02 12:09:18 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,44 +19,27 @@ int main(int argc, char **argv)
 	stack->a = NULL;
 	stack->b = NULL;
 	init_stack(argc, argv, stack);
-	t_node *temp;
-	temp = stack->a;
-	// push(&stack->b, &stack->a);
-	printf("BEFORE SWAP\n");
-	while (temp)
+	t_node *temp_a;
+	// temp_a = stack->a;
+	stack->b = create_new_node(3);
+	stack->b->next = create_new_node(2);
+	stack->b->next->next = create_new_node(5);
+	temp_a = stack->a;
+	printf("BEFORE ROTATE\n");
+	while (temp_a)
 	{
-		printf("%d\n", temp->num);
-		temp = temp->next;
-	}
-	swap(&stack->a);
-	temp = stack->a;
-	printf("AFTER SWAP\n");
-	while (temp)
-	{
-		printf("%d\n", temp->num);
-		temp = temp->next;
+		printf("%d\n", temp_a->num);
+		temp_a = temp_a->next;
 	}
 
-	// temp = stack->a;
-	// while (temp)
-	// {
-// 
-	// }
-	// printf("##########\n");
-	// while (temp)
-	// {
-	// 	printf("%d\n", temp->num);
-	// 	temp = temp->next;
-	// }
-	// printf("##########\n");
-	// swap(&stack->a);
-	// temp = stack->a;
-	// while (temp)
-	// {
-	// 	printf ("%d\n", temp->num);
-	// 	temp = temp->next;
-	// }
-	// push(&stack->a, &stack->b);
+	printf("AFTER ROTATE\n");
+	rev_rotate(&stack->a);
+	temp_a = stack->a;
+	while (temp_a)
+	{
+		printf("%d\n", temp_a->num);
+		temp_a = temp_a->next;
+	}
 	return (0);
 }
 

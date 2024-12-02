@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:15:40 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/29 17:35:12 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/02 12:17:08 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,3 @@ void	push(t_node **stack_x, t_node **stack_y)
 	(*stack_x) = head_x;
 	(*stack_y) = head_y;
 }
-
-// t_node	*push(t_stack *stack)
-// {
-// 	t_node	*stack_a;
-// 	t_node	*stack_b;
-
-// 	stack_a = stack->a;
-// 	stack_b = stack->b;
-
-// }

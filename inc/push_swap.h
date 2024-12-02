@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/29 17:35:05 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/02 12:09:36 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ char	**check_valid_number(char **argv);
 
 void	swap(t_node **stack);
 void	push(t_node **stack_x, t_node **stack_y);
+void	rotate(t_node **stack);
+void	rev_rotate(t_node **stack);
+
 
 
 //=============================================================================//
@@ -74,6 +77,7 @@ void	push(t_node **stack_x, t_node **stack_y);
 t_node	*get_last_node(t_node *head);
 int		count_stack_size(t_node *stack_a);
 t_node	*create_new_node(int num);
+
 
 
 //=============================================================================//
