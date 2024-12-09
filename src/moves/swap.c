@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   210_swap.c                                         :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:55:44 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/29 17:35:11 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/09 12:35:38 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ void	swap(t_node **stack)
 	*stack = first;
 }
 
-// void	sa(t_stack *stacks)
-// {
-// 	swap(&(*stacks)->a);
-// }
+void	sa(t_stack *stack)
+{
+	swap(&stack->a);
+	write(1, "sa\n", 3);
+}
 
-// void	sb(t_stack *stacks)
-// {
-// 	swap(&(*stacks)->b);
-// }
+void	sb(t_stack *stack)
+{
+	swap(&stack->b);
+	write(1, "sb\n", 3);
+}

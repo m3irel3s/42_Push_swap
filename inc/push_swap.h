@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/02 12:09:36 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:19:41 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@
 //=============================================================================//
 //                               STRUCTURES                                    //
 //=============================================================================//
-
+// /home/jmeirele/Desktop/Workspace/CommonCore/rank02/42_Push_swap/./push_swap
 typedef struct s_node
 {
 	int	num;
-	int max;
-	int min;
 	int index;
 	int cost;
 
@@ -36,9 +34,7 @@ typedef struct s_node
 typedef struct s_stack
 {
 	t_node	*a;
-	int		size_a;
 	t_node	*b;
-	int		size_b;
 }	t_stack;
 
 
@@ -46,29 +42,46 @@ typedef struct s_stack
 //                            PARSING FUNCTIONS                                //
 //=============================================================================//
 
-void	init_stack(int argc, char **argv, t_stack *stack);
+void	init_stack(char **argv, t_stack *stack);
 char	**check_arguments(int argc, char **argv);
 void	validate_and_bluid_stack(char **argv, t_node **stack);
 long	validate_and_convert(char *argv);
 void	check_for_duplicates(t_node *a, int num);
 void	append_to_stack(t_node **stack, int num);
 char	**check_valid_number(char **argv);
-
+void	give_index(char **argv, t_node **stack);
+int		*init_tab_and_convert(char **argv, int *tab, int len);
+int		*sort_tab(int *tab, int len);
 
 //=============================================================================//
 //                            MOVEMENTS FUNCTIONS                              //
 //=============================================================================//
 
-void	swap(t_node **stack);
 void	push(t_node **stack_x, t_node **stack_y);
-void	rotate(t_node **stack);
+void	pa(t_stack *stack);
+void	pb(t_stack *stack);
+
+void	swap(t_node **stack);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+
 void	rev_rotate(t_node **stack);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+
+void	rotate(t_node **stack);
+void	rb(t_stack *stack);
+void	ra(t_stack *stack);
 
 
 
 //=============================================================================//
 //                            ALGORITHM FUNCTIONS                              //
 //=============================================================================//
+
+void	test_sort(t_stack *stack);
+void	print_stacks(t_stack *stack);
+
 
 //=============================================================================//
 //                              UTILS FUNCTIONS                                //
@@ -77,6 +90,8 @@ void	rev_rotate(t_node **stack);
 t_node	*get_last_node(t_node *head);
 int		count_stack_size(t_node *stack_a);
 t_node	*create_new_node(int num);
+int		is_sorted(t_stack *stack);
+void	recalculate_index(t_stack *stack);
 
 
 
@@ -85,9 +100,5 @@ t_node	*create_new_node(int num);
 //=============================================================================//
 
 char	*ft_print_error(char *str);
-
-
-
-
 
 #endif

@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   230_rotate.c                                       :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:45:59 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/02 12:13:13 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:04:14 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	rotate(t_node **stack)
+void rotate(t_node **stack)
 {
-	t_node	*head;
-	t_node	*tail;
-	t_node	*temp_head;
+	t_node *head;
+	t_node *tail;
+	t_node *temp_head;
 
-	head = (*stack);
+	if (!stack || !(*stack) || !(*stack)->next)
+		return;
+	head = *stack;
 	tail = get_last_node(head);
 	temp_head = head;
-	head = head->next;
-	head->prev = NULL;
+	*stack = head->next;
+	(*stack)->prev = NULL;
 	tail->next = temp_head;
+	temp_head->prev = tail;
 	temp_head->next = NULL;
-	(*stack) = head;
+}
+
+void	ra(t_stack *stack)
+{
+	rotate(&stack->a);
+	write(1, "ra\n", 3);
+}
+
+void	rb(t_stack *stack)
+{
+	rotate(&stack->b);
+	write(1, "rb\n", 3);
 }
 

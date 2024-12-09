@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   220_push.c                                         :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:15:40 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/02 12:17:08 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:02:36 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	push(t_node **stack_x, t_node **stack_y)
 {
-	t_node *head_x = (*stack_x);
-	t_node *head_y = (*stack_y);
+	t_node *head_x = *stack_x;
+	t_node *head_y = *stack_y;
 	t_node *temp_x;
 	t_node *temp_y;
 
+	if (!*stack_x)
+		return ;
 	temp_x = head_x;
 	temp_y = head_y;
 	head_x = head_x->next;
@@ -33,6 +35,16 @@ void	push(t_node **stack_x, t_node **stack_y)
 		temp_y->prev = temp_x;
 		head_y = temp_x;
 	}
-	(*stack_x) = head_x;
-	(*stack_y) = head_y;
+	*stack_x = head_x;
+	*stack_y = head_y;
+}
+void	pb(t_stack *stack)
+{
+	push(&stack->a, &stack->b);
+	write(1, "pb\n", 3);
+}
+void	pa(t_stack *stack)
+{
+	push(&stack->b, &stack->a);
+	write(1, "pa\n", 3);
 }

@@ -50,11 +50,6 @@ define swap
 	disp *second->next
 end
 
-define append_to_stack
-	disp *new_node
-	disp *last
-end
-
 define push
 	disp *head_a
 	disp *head_b
@@ -62,12 +57,38 @@ define push
 	disp *temp_b
 end
 
+define append_to_stack
+	disp *new_node
+	disp *last
+end
+
+define give_index
+	disp argv[i]
+	disp argv[i + 1]
+	disp sorted
+	disp tab[i]
+	disp tab[i + 1]
+end
+
+define test_sort
+	disp chunk_size
+	disp chunk_size * 2
+	disp curr->index
+	disp curr->num
+	disp *stack->a
+end
+
+define is_sorted
+	disp curr->index
+	disp curr->next->index
+end
+
 # brea kat main
 fs cmd
 file push_swap
 break main
-break rotate
-run +32 10 -12 -32 +12 -84821412 -432 143 134 > /dev/null
+break is_sorted
+run 1 2 3 4 5 6 7 8
 
 # fs cmd
 # run +32 10 -12 -32 +12 -84821412 -432 143 134
