@@ -6,11 +6,12 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:09:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 17:02:15 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:11:56 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
 
  int main(int argc, char **argv)
 {

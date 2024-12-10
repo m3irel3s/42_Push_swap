@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 17:00:06 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:13:59 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ra(t_stack *stack);
 
 
 //=============================================================================//
-//                            ALGORITHM FUNCTIONS                              //
+//                               SORT FUNCTIONS                                //
 //=============================================================================//
 
 void	sort_algorithm(t_stack *stack);
@@ -94,8 +94,6 @@ t_node	*create_new_node(int num);
 int		is_sorted(t_stack *stack);
 t_node	*get_highest_value(t_stack *stack);
 void	recalculate_index(t_stack *stack, int len);
-
-
 
 
 //=============================================================================//
