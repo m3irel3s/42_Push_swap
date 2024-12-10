@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 14:37:26 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 17:00:06 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ void	ra(t_stack *stack);
 //                            ALGORITHM FUNCTIONS                              //
 //=============================================================================//
 
-void	test_sort(t_stack *stack);
-void	print_stacks(t_stack *stack);
+void	sort_algorithm(t_stack *stack);
+void	split_into_chunks(t_stack *stack);
 void	sort_three(t_stack *stack);
 
 

@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 13:59:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 15:05:39 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 15:06:33 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,4 @@ char	*ft_print_error(char *str)
 {
 	ft_putstr_fd(str, 2);
 	exit(1);
-	
 }

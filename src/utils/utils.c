@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 10:46:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 14:37:17 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 15:44:21 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int	is_sorted(t_stack *stack)
 	t_node *curr;
 
 	curr = stack->a;
-	while (curr->index)
+	while (curr->num)
 	{
-		if (curr->index > curr->next->index)
+		if (curr->num > curr->next->num)
 			return 0;
 		curr = curr->next;
 	}

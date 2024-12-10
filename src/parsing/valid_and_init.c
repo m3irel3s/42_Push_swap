@@ -6,12 +6,21 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:59:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 13:19:20 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:53:42 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
+
+void	init_stack(char **argv, t_stack *stack)
+{
+	stack->b = NULL;
+	stack->a = NULL;
+	check_valid_number(argv);
+	validate_and_bluid_stack(argv, &stack->a);
+	give_index(argv, &stack->a);
+}
 
 void	validate_and_bluid_stack(char **argv, t_node **stack)
 {

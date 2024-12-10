@@ -1,14 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_sort.c                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 13:18:51 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 13:19:26 by jmeirele         ###   ########.fr       */
+/*   Created: 2024/12/10 16:53:52 by jmeirele          #+#    #+#             */
+/*   Updated: 2024/12/10 17:08:03 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
+void	sort_algorithm(t_stack *stack)
+{
+	split_into_chunks(stack);
+	if (!is_sorted(stack))
+		sort_three(stack);
+}
