@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   810_utils_movements.c                              :+:      :+:    :+:   */
+/*   utils_movements.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:07:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/11/29 17:35:16 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 13:26:52 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 t_node	*get_last_node(t_node *head)
 {
@@ -23,5 +23,6 @@ t_node	*get_last_node(t_node *head)
 		last_node = last_node->next;
 	return last_node;
 }
+
 
 

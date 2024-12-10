@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/09 17:30:38 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 14:37:26 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	ra(t_stack *stack);
 
 void	test_sort(t_stack *stack);
 void	print_stacks(t_stack *stack);
+void	sort_three(t_stack *stack);
 
 
 //=============================================================================//
@@ -91,7 +92,9 @@ t_node	*get_last_node(t_node *head);
 int		count_stack_size(t_node *stack_a);
 t_node	*create_new_node(int num);
 int		is_sorted(t_stack *stack);
-void	recalculate_index(t_stack *stack);
+t_node	*get_highest_value(t_stack *stack);
+void	recalculate_index(t_stack *stack, int len);
+
 
 
 

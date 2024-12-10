@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:15:40 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/09 14:02:36 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 13:19:57 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 void	push(t_node **stack_x, t_node **stack_y)
 {

@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:45:59 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/09 14:04:14 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 14:56:58 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 void rotate(t_node **stack)
 {

@@ -6,44 +6,39 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 16:48:05 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/09 17:30:40 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 13:20:19 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-
 void test_sort(t_stack *stack)
 {
-	int	len;
-	int	chunk_size;
+	int len;
+	int chunk_size;
 	t_node *curr;
-	len = count_stack_size(stack->a);
-	chunk_size = len / 3;
-	while (len > 0)
+
+	while (count_stack_size(stack->a) > 3 && !is_sorted(stack))
 	{
-		curr = stack->a;
-		if (curr->index >= chunk_size && curr->index <= (chunk_size * 2))
+		len = count_stack_size(stack->a);
+		chunk_size = len / 3;
+		while (len > 0)
 		{
-			pb(stack);
+			curr = stack->a;
+			if (curr->index >= chunk_size && curr->index <= chunk_size * 2)
+				pb(stack);
+			else if (curr->index < chunk_size)
+			{
+				pb(stack);
+				rb(stack);
+			}
+			else if (curr->index > chunk_size * 2)
+				ra(stack);
+			len--;
 		}
-		else if (curr->index < chunk_size)
-		{
-			pb(stack);
-			rb(stack);
-		}
-		else if (curr->index > chunk_size * 2)
-		{
-			ra(stack);
-		}
-		len--;
+		recalculate_index(stack, count_stack_size(stack->a));
 	}
-	recalculate_index(stack);
 }
-
-
-
-
 
 void	print_stacks(t_stack *stack)
 {

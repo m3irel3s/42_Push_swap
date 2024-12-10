@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 10:46:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/09 17:30:39 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 14:37:17 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
 
 int	count_stack_size(t_node *stack_a)
 {
@@ -21,6 +21,22 @@ int	count_stack_size(t_node *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (i);
+}
+
+t_node	*get_highest_value(t_stack *stack)
+{
+	t_node	*curr;
+	t_node	*highest;
+
+	curr = stack->a;
+	highest = curr;
+	while (curr)
+	{
+		if (curr->num > highest->num)
+			highest = curr;
+		curr = curr->next;
+	}
+	return highest;
 }
 
 t_node	*create_new_node(int num)
@@ -49,25 +65,38 @@ int	is_sorted(t_stack *stack)
 	return 1;
 }
 
-void	recalculate_index(t_stack *stack)
+void	recalculate_index(t_stack *stack, int len)
 {
-	int	len = count_stack_size(stack->a);
-	printf("len[%d]\n", len);
 	int	*tab;
 	tab = malloc(sizeof(int) * len);
 	int i = 0;
-	while (stack->a)
+	t_node	*curr;
+	curr = stack->a;
+	int j;
+	while (curr)
 	{
-		tab[i] = stack->a->num;
+		tab[i] = curr->num;
 		i++;
-		stack->a = stack->a->next;
+		curr = curr->next;
 	}
+	sort_tab(tab, len);
+	curr = stack->a;
 	i = 0;
-	while (tab[i])
+	while (curr)
 	{
-		printf("tab[%d] = %d\n", i, tab[i]);
-		i++;
+		j = 0;
+		while (j < len)
+		{
+			if (curr->num == tab[j])
+			{
+				curr->index = j;
+				break;
+			}
+			j++;
+		}
+		curr = curr->next;
 	}
+	free(tab);
 }
 
 

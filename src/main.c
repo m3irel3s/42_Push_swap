@@ -6,11 +6,11 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:09:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/09 14:56:15 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 13:51:50 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 // ## TEST FOR MOVEMENTS
 // int main(int argc, char **argv)
@@ -68,7 +68,7 @@
 	stack = malloc(sizeof(t_stack));
 	argv = check_arguments(argc, argv);
 	init_stack(argv, stack);
-	test_sort(stack);
+	sort_three(stack);
 }
 
 void	init_stack(char **argv, t_stack *stack)

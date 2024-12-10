@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   small_sorts.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 11:57:25 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 14:40:29 by jmeirele         ###   ########.fr       */
+/*   Created: 2024/12/10 13:18:05 by jmeirele          #+#    #+#             */
+/*   Updated: 2024/12/10 15:02:01 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	rev_rotate(t_node **stack)
+void sort_three(t_stack *stack)
 {
 	t_node	*head;
-	t_node	*tail;
-	t_node	*temp_head;
 
-	head = *stack;
-	tail = get_last_node(head);
-	temp_head = head;
-	tail->prev->next = NULL;
-	head = tail;
-	head->next = temp_head;
-	head->prev = NULL;
-	*stack = head;
+	t_node *highest;
+	head = stack->a;
+	highest = get_highest_value(stack);
+	// 2 0 1 || 2 1 0
+	if (head == highest)
+		ra(stack);
+	// 0 2 1 || 1 2 0
+	else if (head->next == highest)
+		rra(stack);
+	// 0 1 2 || 1 0 2
+	head = stack->a;
+	if (head->num > head->next->num)
+		sa(stack);
 }
 
-void	rra(t_stack *stack)
-{
-	rev_rotate(&stack->a);
-	write(1, "rra\n", 4);
-}
-
-void	rrb(t_stack *stack)
-{
-	rev_rotate(&stack->b);
-	write(1, "rrb\n", 4);
-}
+// void	sort_five(t_stack *stack)
+// {
+	
+// }

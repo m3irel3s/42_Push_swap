@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   120_valid_and_init.c                               :+:      :+:    :+:   */
+/*   valid_and_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:59:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/02 14:19:47 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/10 13:19:20 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../../inc/push_swap.h"
+
 
 void	validate_and_bluid_stack(char **argv, t_node **stack)
 {
