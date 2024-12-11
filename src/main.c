@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:09:02 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 17:11:56 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:43:13 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@
 	argv = check_arguments(argc, argv);
 	init_stack(argv, stack);
 	sort_algorithm(stack);
+	t_node *curr;
+
+	curr = stack->b;
+	while (stack->b)
+	{
+		printf("[%d] num => %d\n", curr->index, curr->num);
+		curr = curr->next;
+	}
 }
 
 // ## TEST FOR MOVEMENTS

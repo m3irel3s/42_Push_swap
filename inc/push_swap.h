@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 17:13:59 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:43:12 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ typedef struct s_node
 {
 	int	num;
 	int index;
-	int cost;
+	int cost_a;
+	int cost_b;
+	int total_cost;
 
 	struct s_node *prev;
 	struct s_node *next;
