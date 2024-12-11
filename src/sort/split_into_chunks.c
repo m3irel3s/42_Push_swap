@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:18:51 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 17:23:51 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/11 14:07:28 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	split_into_chunks(t_stack *stack)
 	int third_biggest;
 	t_node *curr;
 	
-	while (count_stack_size(stack->a) > 3)
+	while (get_stack_size(stack->a) > 3)
 	{
-		len = count_stack_size(stack->a);
+		len = get_stack_size(stack->a);
 		chunk_size = len / 3;
 		third_biggest = len - 3;
 		while (len > 0)
@@ -30,14 +30,14 @@ void	split_into_chunks(t_stack *stack)
 			if (curr->index < third_biggest && curr->index <= chunk_size * 2)
 			{
 				pb(stack);
-				if (curr->index < chunk_size)
+				if (curr->index < chunk_size && get_stack_size(stack->b) > 1)
 					rb(stack);
 			}
 			else
 				ra(stack);
 			len--;
 		}
-		recalculate_index(stack, count_stack_size(stack->a));
+		recalculate_index(stack->a, get_stack_size(stack->a));
 	}
 }
 

@@ -6,19 +6,23 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 10:46:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 15:44:21 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/11 14:07:27 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-int	count_stack_size(t_node *stack_a)
+int	get_stack_size(t_node *stack)
 {
-	int i = 0;
-	while (stack_a)
+	int i;
+	t_node *curr;
+
+	i = 0;
+	curr = stack;
+	while (curr)
 	{
 		i++;
-		stack_a = stack_a->next;
+		curr = curr->next;
 	}
 	return (i);
 }
@@ -65,13 +69,13 @@ int	is_sorted(t_stack *stack)
 	return 1;
 }
 
-void	recalculate_index(t_stack *stack, int len)
+void	recalculate_index(t_node *stack, int len)
 {
 	int	*tab;
 	tab = malloc(sizeof(int) * len);
 	int i = 0;
 	t_node	*curr;
-	curr = stack->a;
+	curr = stack;
 	int j;
 	while (curr)
 	{
@@ -80,7 +84,7 @@ void	recalculate_index(t_stack *stack, int len)
 		curr = curr->next;
 	}
 	sort_tab(tab, len);
-	curr = stack->a;
+	curr = stack;
 	i = 0;
 	while (curr)
 	{

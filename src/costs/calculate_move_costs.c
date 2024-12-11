@@ -1,45 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_movements.c                                  :+:      :+:    :+:   */
+/*   calculate_move_costs.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 11:07:09 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/11 12:43:57 by jmeirele         ###   ########.fr       */
+/*   Created: 2024/12/11 10:45:08 by jmeirele          #+#    #+#             */
+/*   Updated: 2024/12/11 13:53:44 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-t_node	*get_last_node(t_node *head)
+int	calculate_rotate_cost(t_node *stack, t_node *node)
 {
-	t_node	*last_node;
+	int position;
 
-	if (!head)
-		ft_print_error("No head found!");
-	last_node = head;
-	while (last_node->next)
-		last_node = last_node->next;
-	return last_node;
+	position = get_node_position(stack, node);
+	if (position == -1)
+		return -1;
+	return position;
 }
 
-int	get_node_position(t_node *stack, t_node *node)
+int	calculate_rev_rotate_cost(t_node *stack, t_node *node)
 {
 	int	position;
-	t_node	*curr;
+	int	stack_size;
 
-	position = 0;
-	curr = stack;
-	while (curr)
-	{
-		if (curr == node)
-			return position;
-		curr = curr->next;
-		position++;
-	}
-	return -1;
+	position = get_node_position(stack, node);
+	stack_size = get_stack_size(stack);
+	if (position == -1)
+		return -1;
+	return stack_size - position;
 }
-
-
-
