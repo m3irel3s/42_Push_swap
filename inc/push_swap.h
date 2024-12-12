@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/11 13:53:42 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:04:45 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_node
 	int cost_a;
 	int cost_b;
 	int total_cost;
+	int direction_a;
+	int direction_b;
 
 	struct s_node *prev;
 	struct s_node *next;
@@ -105,6 +107,10 @@ t_node	*get_highest_value(t_stack *stack);
 void	recalculate_index(t_node *stack, int len);
 void	recalculate_indexes_after_chunk_split(t_stack *stack);
 int		get_node_position(t_node *stack, t_node *node);
+t_node	*set_target_position(t_stack *stack, t_node *b_node);
+t_node	*find_lowest_total_cost(t_stack *stack);
+
+
 
 
 //=============================================================================//
