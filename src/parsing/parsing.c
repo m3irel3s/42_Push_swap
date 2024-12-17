@@ -6,25 +6,31 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 11:19:52 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 13:19:22 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:01:45 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-
-char	**check_arguments(int argc, char **argv)
+char	**check_arguments(int argc, char **argv, t_flags *flag, t_stack *stack)
 {
 	if (argc < 2)
-		ft_print_error("Less than 2 arguments given!");
+	{
+		free(stack);
+		free(flag);
+		exit(1);
+	}
 	else if (argc == 2)
+	{
 		argv = ft_split(argv[1], ' ');
-	else if(argc > 2)
+		flag->split_flag = 1;
+	}
+	else if (argc > 2)
 		argv = argv + 1;
-	return argv;
+	return (argv);
 }
 
-char	**check_valid_number(char **argv)
+char	**check_valid_number(char **argv, t_flags *flag, t_stack *stack)
 {
 	size_t	j;
 	size_t	i;
@@ -36,11 +42,11 @@ char	**check_valid_number(char **argv)
 		if (argv[i][j] == '-' || argv[i][j] == '+')
 			j++;
 		if (!argv[i][j])
-			ft_print_error("No string, handled the - or + input!");
+			ft_print_error(argv, "Error\n", flag, stack);
 		while (argv[i][j])
 		{
 			if (!ft_isdigit(argv[i][j]))
-				ft_print_error("Not digit!\n");
+				ft_print_error(argv, "Error\n", flag, stack);
 			j++;
 		}
 		i++;

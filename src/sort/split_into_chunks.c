@@ -6,23 +6,23 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:18:51 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/11 14:07:28 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:10:25 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	split_into_chunks(t_stack *stack)
+void	split_into_chunks(t_stack *stack, int chunk_divisor)
 {
-	int len;
-	int chunk_size;
-	int third_biggest;
-	t_node *curr;
-	
-	while (get_stack_size(stack->a) > 3)
+	int		len;
+	int		chunk_size;
+	int		third_biggest;
+	t_node	*curr;
+
+	while (get_stack_size(stack->a) > 3 && !is_sorted(stack))
 	{
 		len = get_stack_size(stack->a);
-		chunk_size = len / 3;
+		chunk_size = len / chunk_divisor;
 		third_biggest = len - 3;
 		while (len > 0)
 		{
@@ -41,3 +41,20 @@ void	split_into_chunks(t_stack *stack)
 	}
 }
 
+void	recalculate_indexes_after_chunk_split(t_stack *stack)
+{
+	t_node	*curr;
+	int		stack_b_len;
+	int		i;
+
+	i = 0;
+	stack_b_len = get_stack_size(stack->b);
+	recalculate_index(stack->b, stack_b_len);
+	curr = stack->a;
+	while (curr)
+	{
+		curr->index = i + stack_b_len;
+		curr = curr->next;
+		i++;
+	}
+}

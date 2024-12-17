@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:55:44 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 14:01:57 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:19:36 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	swap(t_node **stack)
 {
-	t_node *first;
-	t_node *second;
+	t_node	*first;
+	t_node	*second;
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	second = *stack;	
+	second = *stack;
 	first = (*stack)->next;
 	first->prev = NULL;
 	second->next = first->next;

@@ -6,34 +6,52 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:53:52 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/12 15:15:48 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:17:03 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	sort_algorithm(t_stack *stack)
+void	sort_algorithm(t_stack *stack, int chunk_divisor)
 {
-	split_into_chunks(stack);
+	t_node	*highest;
+	int		position;
+	int		size;
+
+	highest = NULL;
+	position = 0;
+	size = 0;
+	split_into_chunks(stack, chunk_divisor);
 	if (!is_sorted(stack))
 		sort_three(stack);
 	recalculate_indexes_after_chunk_split(stack);
+	while (stack->b)
+	{
+		if (stack->b->next == NULL)
+		{
+			pa(stack);
+			break ;
+		}
+		get_highest_and_push_to_a(highest, position, size, stack);
+	}
 }
 
-void	recalculate_indexes_after_chunk_split(t_stack *stack)
+void	get_highest_and_push_to_a(t_node *highest, int position,
+	int size, t_stack *stack)
 {
-	t_node *curr;
-	int		stack_b_len;
-	int		i;
+	int	i;
 
 	i = 0;
-	stack_b_len = get_stack_size(stack->b);
-	recalculate_index(stack->b, stack_b_len);
-	curr = stack->a;
-	while (curr)
+	highest = get_highest_value(stack->b);
+	position = get_node_position(stack->b, highest);
+	size = get_stack_size(stack->b);
+	while (stack->b != highest && i < size)
 	{
-		curr->index = i + stack_b_len;
-		curr = curr->next;
+		if (position <= size / 2)
+			rb(stack);
+		else
+			rrb(stack);
 		i++;
 	}
+	pa(stack);
 }

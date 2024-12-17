@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 10:46:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/11 14:07:27 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:10:23 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	get_stack_size(t_node *stack)
 {
-	int i;
-	t_node *curr;
+	int		i;
+	t_node	*curr;
 
 	i = 0;
 	curr = stack;
@@ -27,56 +27,49 @@ int	get_stack_size(t_node *stack)
 	return (i);
 }
 
-t_node	*get_highest_value(t_stack *stack)
+t_node	*get_highest_value(t_node *stack)
 {
 	t_node	*curr;
 	t_node	*highest;
 
-	curr = stack->a;
+	if (!stack)
+		return (NULL);
+	curr = stack;
 	highest = curr;
 	while (curr)
 	{
-		if (curr->num > highest->num)
+		if (curr->index > highest->index)
 			highest = curr;
 		curr = curr->next;
 	}
-	return highest;
-}
-
-t_node	*create_new_node(int num)
-{
-	t_node	*node;
-	node = malloc(sizeof(t_node));
-	if (!node)
-		ft_print_error("Error adding memory to new_node");
-	node->num = num;
-	node->next = NULL;
-	node->prev = NULL;
-	return node;
+	return (highest);
 }
 
 int	is_sorted(t_stack *stack)
 {
-	t_node *curr;
+	t_node	*curr;
 
 	curr = stack->a;
-	while (curr->num)
+	while (curr && curr->next)
 	{
-		if (curr->num > curr->next->num)
-			return 0;
+		if (curr->index > curr->next->index)
+			return (0);
 		curr = curr->next;
 	}
-	return 1;
+	return (1);
 }
 
-void	recalculate_index(t_node *stack, int len)
+void	recalculate_index(t_node *node, int len)
 {
-	int	*tab;
-	tab = malloc(sizeof(int) * len);
-	int i = 0;
 	t_node	*curr;
-	curr = stack;
-	int j;
+	int		*tab;
+	int		i;
+
+	tab = malloc(sizeof(int) * len);
+	if (!tab)
+		return ;
+	curr = node;
+	i = 0;
 	while (curr)
 	{
 		tab[i] = curr->num;
@@ -84,23 +77,28 @@ void	recalculate_index(t_node *stack, int len)
 		curr = curr->next;
 	}
 	sort_tab(tab, len);
-	curr = stack;
-	i = 0;
-	while (curr)
-	{
-		j = 0;
-		while (j < len)
-		{
-			if (curr->num == tab[j])
-			{
-				curr->index = j;
-				break;
-			}
-			j++;
-		}
-		curr = curr->next;
-	}
+	give_index_after_recalculation(node, len, tab);
 	free(tab);
 }
 
+void	give_index_after_recalculation(t_node *node, int len, int *tab)
+{
+	t_node	*curr;
+	int		i;
 
+	curr = node;
+	while (curr)
+	{
+		i = 0;
+		while (i < len)
+		{
+			if (curr->num == tab[i])
+			{
+				curr->index = i;
+				break ;
+			}
+			i++;
+		}
+		curr = curr->next;
+	}
+}

@@ -6,20 +6,20 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:45:59 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/12 15:15:51 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/13 16:19:13 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void rotate(t_node **stack)
+void	rotate(t_node **stack)
 {
-	t_node *head;
-	t_node *tail;
-	t_node *temp_head;
+	t_node	*head;
+	t_node	*tail;
+	t_node	*temp_head;
 
 	if (!stack || !(*stack) || !(*stack)->next)
-		return;
+		return ;
 	head = *stack;
 	tail = get_last_node(head);
 	temp_head = head;
@@ -42,3 +42,9 @@ void	rb(t_stack *stack)
 	write(1, "rb\n", 3);
 }
 
+void	rr(t_stack *stack)
+{
+	rotate(&stack->a);
+	rotate(&stack->b);
+	write(1, "rr\n", 3);
+}

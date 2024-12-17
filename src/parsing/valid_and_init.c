@@ -6,53 +6,60 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:59:57 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/10 16:53:42 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:16:16 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-
-void	init_stack(char **argv, t_stack *stack)
+void	init_stack(char **argv, t_stack *stack, t_flags *flag)
 {
 	stack->b = NULL;
 	stack->a = NULL;
-	check_valid_number(argv);
-	validate_and_bluid_stack(argv, &stack->a);
-	give_index(argv, &stack->a);
+	check_valid_number(argv, flag, stack);
+	validate_and_build_stack(argv, &stack->a, stack, flag);
+	give_index(argv, &stack->a, stack);
 }
 
-void	validate_and_bluid_stack(char **argv, t_node **stack)
+void	validate_and_build_stack(char **argv, t_node **stack,
+			t_stack *stacks, t_flags *flag)
 {
-	int	i;
+	int		i;
+	long	num;
 
 	i = 0;
 	while (argv[i])
 	{
-		long	num = 0;
-		num = validate_and_convert(argv[i]);
-		check_for_duplicates(*stack, (int)num);
+		num = validate_and_convert(argv[i], argv, stacks, flag);
+		check_for_duplicates((int)num, stacks, flag, argv);
 		append_to_stack(stack, (int)num);
 		i++;
 	}
+	stacks->total_len = i;
 }
 
-long	validate_and_convert(char *argv)
+long	validate_and_convert(char *str, char **argv, t_stack *stacks,
+			t_flags *flag)
 {
 	long	num;
 
-	num = ft_atol(argv);
+	num = ft_atol(str);
 	if (num > INT_MAX || num < INT_MIN)
-		ft_print_error("INT_MAX || INT_MIN detected!");
-	return num;
+		ft_print_error(argv, "Error\n", flag, stacks);
+	return (num);
 }
-void	check_for_duplicates(t_node *a, int num)
+
+void	check_for_duplicates(int num, t_stack *stack, t_flags *flag,
+			char **argv)
 {
-	while (a)
+	t_node	*curr;
+
+	curr = stack->a;
+	while (curr)
 	{
-		if (a->num == num)
-			ft_print_error("Found duplicate!");
-		a = a->next;
+		if (curr->num == num)
+			ft_print_error(argv, "Error\n", flag, stack);
+		curr = curr->next;
 	}
 }
 
@@ -71,5 +78,5 @@ void	append_to_stack(t_node **stack, int num)
 			last = last->next;
 		last->next = new_node;
 		new_node->prev = last;
-	}	
+	}
 }

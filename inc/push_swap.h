@@ -6,7 +6,7 @@
 /*   By: jmeirele <jmeirele@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 13:35:55 by jmeirele          #+#    #+#             */
-/*   Updated: 2024/12/12 15:04:45 by jmeirele         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:06:07 by jmeirele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,49 +17,51 @@
 # include "../42_Libft/FT_Printf/inc/ft_printf.h"
 # include "../42_Libft/Get_next_line/inc/get_next_line.h"
 
-//=============================================================================//
-//                               STRUCTURES                                    //
-//=============================================================================//
-// /home/jmeirele/Desktop/Workspace/CommonCore/rank02/42_Push_swap/./push_swap
+//===============================================================//
+//                          STRUCTURES                           //
+//===============================================================//
+
+typedef struct s_flags
+{
+	int	split_flag;
+}	t_flags;
+
 typedef struct s_node
 {
-	int	num;
-	int index;
-	int cost_a;
-	int cost_b;
-	int total_cost;
-	int direction_a;
-	int direction_b;
-
-	struct s_node *prev;
-	struct s_node *next;
+	int				num;
+	int				index;
+	struct s_node	*prev;
+	struct s_node	*next;
 }	t_node;
 
 typedef struct s_stack
 {
 	t_node	*a;
 	t_node	*b;
+	int		total_len;
 }	t_stack;
 
+//===============================================================//
+//                       PARSING FUNCTIONS                       //
+//===============================================================//
 
-//=============================================================================//
-//                            PARSING FUNCTIONS                                //
-//=============================================================================//
-
-void	init_stack(char **argv, t_stack *stack);
-char	**check_arguments(int argc, char **argv);
-void	validate_and_bluid_stack(char **argv, t_node **stack);
-long	validate_and_convert(char *argv);
-void	check_for_duplicates(t_node *a, int num);
+void	init_stack(char **argv, t_stack *stack, t_flags *flag);
+char	**check_arguments(int argc, char **argv, t_flags *flag, t_stack *stack);
+void	validate_and_build_stack(char **argv, t_node **stack,
+			t_stack *stacks, t_flags *flag);
+long	validate_and_convert(char *str, char **argv, t_stack *stacks,
+			t_flags *flag);
+void	check_for_duplicates(int num, t_stack *stack,
+			t_flags *flag, char **argv);
 void	append_to_stack(t_node **stack, int num);
-char	**check_valid_number(char **argv);
-void	give_index(char **argv, t_node **stack);
+char	**check_valid_number(char **argv, t_flags *flag, t_stack *stack);
+void	give_index(char **argv, t_node **stack, t_stack *stacks);
 int		*init_tab_and_convert(char **argv, int *tab, int len);
 int		*sort_tab(int *tab, int len);
 
-//=============================================================================//
-//                            MOVEMENTS FUNCTIONS                              //
-//=============================================================================//
+//===============================================================//
+//                       MOVEMENTS FUNCTIONS                     //
+//===============================================================//
 
 void	push(t_node **stack_x, t_node **stack_y);
 void	pa(t_stack *stack);
@@ -72,51 +74,43 @@ void	sb(t_stack *stack);
 void	rev_rotate(t_node **stack);
 void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
+void	rrr(t_stack *stack);
 
 void	rotate(t_node **stack);
 void	rb(t_stack *stack);
 void	ra(t_stack *stack);
+void	rr(t_stack *stack);
 
+//===============================================================//
+//                         SORT FUNCTIONS                        //
+//===============================================================//
 
-
-//=============================================================================//
-//                               SORT FUNCTIONS                                //
-//=============================================================================//
-
-void	sort_algorithm(t_stack *stack);
-void	split_into_chunks(t_stack *stack);
+void	sort_algorithm(t_stack *stack, int chunk_divisor);
+void	split_into_chunks(t_stack *stack, int chunk_divisor);
 void	sort_three(t_stack *stack);
+void	get_highest_and_push_to_a(t_node *highest, int position,
+			int size, t_stack *stack);
 
-
-//=============================================================================//
-//                               COST FUNCTIONS                                //
-//=============================================================================//
-
-int		calculate_rotate_cost(t_node *stack, t_node *node);
-int		calculate_rev_rotate_cost(t_node *stack, t_node *node);
-
-//=============================================================================//
-//                              UTILS FUNCTIONS                                //
-//=============================================================================//
+//===============================================================//
+//                        UTILS FUNCTIONS                        //
+//===============================================================//
 
 t_node	*get_last_node(t_node *head);
 int		get_stack_size(t_node *stack);
 t_node	*create_new_node(int num);
 int		is_sorted(t_stack *stack);
-t_node	*get_highest_value(t_stack *stack);
-void	recalculate_index(t_node *stack, int len);
+t_node	*get_highest_value(t_node *stack);
+void	recalculate_index(t_node *node, int len);
+void	give_index_after_recalculation(t_node *node, int len, int *tab);
 void	recalculate_indexes_after_chunk_split(t_stack *stack);
 int		get_node_position(t_node *stack, t_node *node);
-t_node	*set_target_position(t_stack *stack, t_node *b_node);
-t_node	*find_lowest_total_cost(t_stack *stack);
+void	free_nodes(t_stack *stack);
+void	free_split(char **argv);
 
+//===============================================================//
+//                         ERROR FUNCTIONS                       //
+//===============================================================//
 
-
-
-//=============================================================================//
-//                              ERROR FUNCTIONS                                //
-//=============================================================================//
-
-char	*ft_print_error(char *str);
+char	*ft_print_error(char **argv, char *str, t_flags *flag, t_stack *stack);
 
 #endif
