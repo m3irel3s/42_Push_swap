@@ -14,9 +14,11 @@ Sorting Algorithm: Implements an optimized sorting algorithm using chunk sorting
 
 - pa, pb – Push the top element from one stack to another.
 
-- ra, rb, rr – Rotate a stack upwards.
+- ra, rb, rr – The first element of the stack becomes the last one.
 
-- rra, rrb, rrr – Rotate a stack downwards.
+- rra, rrb, rrr – The last element of the stack becomes the first one.
+
+- ss, rr, rrr - Applies to both stacks in one instruction.
 
 **Chunk Sorting Approach:**
 
@@ -61,6 +63,7 @@ Sorting Algorithm: Implements an optimized sorting algorithm using chunk sorting
 For reference, here are the results for sorting 100 and 500 random numbers:
 
 - **100 numbers:** Approximately 600-650 operations
+  
 - **500 numbers:** Approximately 5300-6000 operations
 
 ## 💡 Inspiration
