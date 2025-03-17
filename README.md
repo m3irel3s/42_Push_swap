@@ -67,4 +67,4 @@ For reference, here are the results for sorting 100 and 500 random numbers:
 
 ## 💡 Inspiration
 
-Push Swap was a fascinating project that deepens understanding of sorting algorithms, stack data structures, and algorithm optimization. It reinforces the importance of efficient problem-solving and teaches how to work within strict constraints, making it a valuable learning experience in algorithmic thinking.
+Push Swap was a fascinating project that deepened my understanding of sorting algorithms, stack data structures, and algorithm optimization. It reinforced the importance of efficient problem-solving and taught me how to work within strict constraints, making it a valuable learning experience in algorithmic thinking.
