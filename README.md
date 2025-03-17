@@ -8,7 +8,7 @@ Push Swap is an algorithmic project that requires implementing a sorting algorit
 
 Sorting Algorithm: Implements an optimized sorting algorithm using chunk sorting to arrange numbers in ascending order with minimal moves.
 
-Stack-Based Operations: Utilizes a limited set of operations to manipulate two stacks:
+**Stack-Based Operations:** Utilizes a limited set of operations to manipulate two stacks:
 
 - sa, sb, ss – Swap the top two elements of a stack.
 
@@ -18,23 +18,23 @@ Stack-Based Operations: Utilizes a limited set of operations to manipulate two s
 
 - rra, rrb, rrr – Rotate a stack downwards.
 
-Chunk Sorting Approach:
+**Chunk Sorting Approach:**
 
-The list is divided into smaller chunks based on its size.
+- The list is divided into smaller chunks based on its size.
 
-Elements are pushed to Stack B in a structured manner to facilitate easy retrieval.
+- Elements are pushed to Stack B in a structured manner to facilitate easy retrieval.
 
-The optimal chunk divisor is determined based on the number of elements:
+- The optimal chunk divisor is determined based on the number of elements:
 
-500+ elements → Divided into 9 chunks
+  - 500+ elements → Divided into 9 chunks
 
-100 or fewer elements → Divided into 6 chunks
+  - 100 or fewer elements → Divided into 6 chunks
 
-5 or fewer elements → Divided into 3 chunks
+  - 5 or fewer elements → Divided into 3 chunks
 
-Handles Edge Cases: Supports duplicate checks, error handling for invalid inputs, and efficient sorting of small and large datasets.
+- Handles Edge Cases: Supports duplicate checks, error handling for invalid inputs, and efficient sorting of small and large datasets.
 
-Performance Focused: Strives for the best possible number of moves, especially for lists of 100 and 500 numbers.
+- Performance Focused: Strives for the best possible number of moves, especially for lists of 100 and 500 numbers.
 
 ## ⚙️ Functionality
 
