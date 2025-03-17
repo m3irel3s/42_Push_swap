@@ -26,35 +26,35 @@ Sorting Algorithm: Implements an optimized sorting algorithm using chunk sorting
 
 - The optimal chunk divisor is determined based on the number of elements:
 
-  - 500+ elements → Divided into 9 chunks
+  - **500+ elements** → Divided into 9 chunks
 
-  - 100 or fewer elements → Divided into 6 chunks
+  - **100 or fewer elements** → Divided into 6 chunks
 
-  - 5 or fewer elements → Divided into 3 chunks
+  - **5 or fewer elements** → Divided into 3 chunks
 
-- Handles Edge Cases: Supports duplicate checks, error handling for invalid inputs, and efficient sorting of small and large datasets.
+- **Handles Edge Cases:** Supports duplicate checks, error handling for invalid inputs, and efficient sorting of small and large datasets.
 
-- Performance Focused: Strives for the best possible number of moves, especially for lists of 100 and 500 numbers.
+- **Performance Focused:** Strives for the best possible number of moves, especially for lists of 100 and 500 numbers.
 
 ## ⚙️ Functionality
 
-Parsing Input: Reads and validates the input to ensure it contains only valid integers and no duplicates.
+1. **Parsing Input:** Reads and validates the input to ensure it contains only valid integers and no duplicates.
 
-Sorting Process:
+2. **Sorting Process:**
 
-If a small number of elements (e.g., 3), uses a hardcoded optimal approach.
+- If a small number of elements (e.g., 3), uses a hardcoded optimal approach.
 
-If a larger number (e.g., 100 or 500), applies chunk sorting:
+- If a larger number (e.g., 100 or 500), applies chunk sorting:
 
-The list is divided into chunks based on size.
+  - The list is divided into chunks based on size.
 
-Numbers are pushed to Stack B in an order that facilitates easier sorting.
+  - Numbers are pushed to Stack B in an order that facilitates easier sorting.
 
-Once sorted, elements are pushed back to Stack A in the correct order.
+  - Once sorted, elements are pushed back to Stack A in the correct order.
 
-Operations Execution: Executes the necessary push, swap, and rotate operations in an optimized sequence.
+- **Operations Execution:** Executes the necessary push, swap, and rotate operations in an optimized sequence.
 
-Output the Solution: Prints the minimal set of operations needed to achieve the sorted order.
+- **Output the Solution:** Prints the minimal set of operations needed to achieve the sorted order.
 
 ## 📊 Performance Example
 
