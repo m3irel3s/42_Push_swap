@@ -10,13 +10,13 @@ Sorting Algorithm: Implements an optimized sorting algorithm using chunk sorting
 
 Stack-Based Operations: Utilizes a limited set of operations to manipulate two stacks:
 
-sa, sb, ss – Swap the top two elements of a stack.
+- sa, sb, ss – Swap the top two elements of a stack.
 
-pa, pb – Push the top element from one stack to another.
+- pa, pb – Push the top element from one stack to another.
 
-ra, rb, rr – Rotate a stack upwards.
+- ra, rb, rr – Rotate a stack upwards.
 
-rra, rrb, rrr – Rotate a stack downwards.
+- rra, rrb, rrr – Rotate a stack downwards.
 
 Chunk Sorting Approach:
 
