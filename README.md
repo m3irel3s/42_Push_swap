@@ -60,11 +60,11 @@ Sorting Algorithm: Implements an optimized sorting algorithm using chunk sorting
 
 For reference, here are the results for sorting 100 and 500 random numbers:
 
-100 numbers: Approximately 600-650 operations
+- **100 numbers:** Approximately 600-650 operations
 
-500 numbers: Approximately 5300-6000 operations
+- **500 numbers:** Approximately 5300-6000 operations
 
 
 ## 💡 Inspiration
 
-Push Swap is a fascinating project that deepens understanding of sorting algorithms, stack data structures, and algorithm optimization. It reinforces the importance of efficient problem-solving and teaches how to work within strict constraints, making it a valuable learning experience in algorithmic thinking.
+Push Swap was a fascinating project that deepens understanding of sorting algorithms, stack data structures, and algorithm optimization. It reinforces the importance of efficient problem-solving and teaches how to work within strict constraints, making it a valuable learning experience in algorithmic thinking.
