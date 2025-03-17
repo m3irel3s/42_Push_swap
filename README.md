@@ -61,7 +61,7 @@ Sorting Algorithm: Implements an optimized sorting algorithm using chunk sorting
 For reference, here are the results for sorting 100 and 500 random numbers:
 
 - **100 numbers:** Approximately 600-650 operations
-
+- https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmdoZG04eWV5N3dtOWRkb3ZzMHFmNHpxMGQ0M3p5c2ppaXhvODIzbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2OvXE6euKWX3D17ykl/giphy.gif
 - **500 numbers:** Approximately 5300-6000 operations
 
 
