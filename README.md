@@ -1,10 +1,10 @@
-🔄 Push Swap
+# 🔄 **Push Swap**
 
-🔍 Overview
+## 🔍 Overview
 
 Push Swap is an algorithmic project from 42 School that requires implementing a sorting algorithm using a restricted set of stack operations. The goal is to efficiently sort a list of numbers using two stacks (A and B) while following strict rules on allowed operations. The challenge is to optimize the sorting process by minimizing the number of operations, especially for 100 and 500 number cases.
 
-🛠 Features
+## 🛠 Features
 
 Sorting Algorithm: Implements an optimized sorting algorithm using chunk sorting to arrange numbers in ascending order with minimal moves.
 
@@ -36,7 +36,7 @@ Handles Edge Cases: Supports duplicate checks, error handling for invalid inputs
 
 Performance Focused: Strives for the best possible number of moves, especially for lists of 100 and 500 numbers.
 
-⚙️ Functionality
+## ⚙️ Functionality
 
 Parsing Input: Reads and validates the input to ensure it contains only valid integers and no duplicates.
 
@@ -56,7 +56,7 @@ Operations Execution: Executes the necessary push, swap, and rotate operations i
 
 Output the Solution: Prints the minimal set of operations needed to achieve the sorted order.
 
-📊 Performance Example
+## 📊 Performance Example
 
 For reference, here are the results for sorting 100 and 500 random numbers:
 
@@ -65,6 +65,6 @@ For reference, here are the results for sorting 100 and 500 random numbers:
 500 numbers: Approximately 5300-6000 operations
 
 
-💡 Inspiration
+## 💡 Inspiration
 
 Push Swap is a fascinating project that deepens understanding of sorting algorithms, stack data structures, and algorithm optimization. It reinforces the importance of efficient problem-solving and teaches how to work within strict constraints, making it a valuable learning experience in algorithmic thinking.
