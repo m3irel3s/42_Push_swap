@@ -2,7 +2,7 @@
 
 ## 🔍 Overview
 
-Push Swap is an algorithmic project from 42 School that requires implementing a sorting algorithm using a restricted set of stack operations. The goal is to efficiently sort a list of numbers using two stacks (A and B) while following strict rules on allowed operations. The challenge is to optimize the sorting process by minimizing the number of operations, especially for 100 and 500 number cases.
+Push Swap is an algorithmic project that requires implementing a sorting algorithm using a restricted set of stack operations. The goal is to efficiently sort a list of numbers using two stacks (A and B) while following strict rules on allowed operations. The challenge is to optimize the sorting process by minimizing the number of operations, especially for 100 and 500 number cases.
 
 ## 🛠 Features
 
