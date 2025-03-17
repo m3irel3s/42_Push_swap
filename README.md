@@ -1,6 +1,6 @@
 # 🔄 **Push Swap**
 
-![image](https://github.com/user-attachments/assets/1b15b3d5-c838-434a-8649-6a89e96894fc)
+![image](https://github.com/user-attachments/assets/60e88a24-c0c3-44d6-9900-98d0c0394acc)
 
 ## 🔍 Overview
 
